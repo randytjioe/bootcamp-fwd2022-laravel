@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transaction', function (Blueprint $table) {
-            $table->foreign('appoinment_id','fk_transaction_to_appoinment')
-           ->references('id')->on('appoinment')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('appointment_id', 'fk_transaction_to_appointment')
+                ->references('id')->on('appointment')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('transaction', function (Blueprint $table) {
-            $table->dropForeign('fk_transaction_to_appoinment');
+            $table->dropForeign('fk_transaction_to_appointment');
         });
     }
 };

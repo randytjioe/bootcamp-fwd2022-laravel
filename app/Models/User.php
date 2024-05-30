@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+      use SoftDeletes;
+    
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
     protected $fillable = [
         'name',
         'email',
@@ -62,4 +71,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function appointment()
+    {
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
+    }
+    public function detail_user()
+    {
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'user_id');
+    }
+
+    public function role_user()
+    {
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
+
+
 }
