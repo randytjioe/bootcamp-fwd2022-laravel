@@ -35,7 +35,7 @@ class LandingController extends Controller
      */
     public function create()
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -43,7 +43,7 @@ class LandingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -51,7 +51,7 @@ class LandingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -59,7 +59,7 @@ class LandingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -67,7 +67,7 @@ class LandingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -75,6 +75,6 @@ class LandingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return abort(404);
     }
 }

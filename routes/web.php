@@ -10,13 +10,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/', LandingController::class);
-
-
-Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
-    // return view('dashboard');
-    Route::get('branch/filter',[AppointmentController::class,'filter'])->name('branch.filter');
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::resource('appointment', AppointmentController::class);
     Route::resource('payment', PaymentController::class);
+});
+
+Route::group(['prefix' => 'backsite', 'as' => 'backsite.', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    return view('dashboard');
+    // Route::get('branch/filter',[AppointmentController::class,'filter'])->name('branch.filter');
+
 });
 Route::middleware([
     'auth:sanctum',
