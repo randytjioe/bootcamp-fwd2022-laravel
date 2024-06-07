@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontsite;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,13 +18,19 @@ use App\Models\MasterData\Specialist;
 class LandingController extends Controller
 {
     /**
+     * Create a new controller instance.
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      */
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+
     public function index()
     {
         return view('pages.frontsite.landing-page.index');

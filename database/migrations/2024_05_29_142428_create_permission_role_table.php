@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('permission_id')->nullable()->index("fk_permission_role_to_permission");
             $table->foreignId('role_id')->nullable()->index("fk_permission_role_to_role");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('fee');
             $table->string('vat');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

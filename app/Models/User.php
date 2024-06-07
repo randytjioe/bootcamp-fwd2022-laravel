@@ -25,13 +25,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-      use SoftDeletes;
-    
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
+
+
     protected $fillable = [
         'name',
         'email',
@@ -85,6 +80,4 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
     }
-
-
 }
